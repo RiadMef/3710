@@ -1,0 +1,33 @@
+<div id="jardin">
+  <h1>Jardins</h1>
+
+  <div class="divider"></div>
+
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Identifiant Jardin</th>
+      <th class="contentCell">Nom Jardin</th>
+      <th class="contentCell">Hauteur Maximale</th>
+      <th class="contentCell">Surface</th>
+      <th class="contentCell">Type Jardin</th>
+      <th class="contentCell">Type Sol</th>
+    </thead>
+    <tbody>
+       <tr *ngFor="let jardin of jardins; let i = index">
+        <td class="contentCell">{{ jardin.identifiantJardin }}</td>
+        <td class="contentCell">{{ jardin.nomJardin }}</td>
+        <td class="contentCell">{{ jardin.hauteurMaximale }}</td>
+        <td class="contentCell">{{ jardin.surface}}</td>
+        <td class="contentCell">{{ jardin.potagerJardinFlag }} {{ jardin.ornementJardinFlag }} {{ jardin.vergerJardinFlag }}</td>
+        <td class="contentCell">{{ jardin.typeSol }}</td>
+        
+       
+      </tr> 
+
+    
+
+    </tbody>
+  </table>
+
+
+</div>
