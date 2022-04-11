@@ -6,8 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PlanteFilterPipe implements PipeTransform {
 
   transform(plantes: any[], searchText: string) {
-  
-    //loop through the array of plantes and return the plantes that match the searchText parameter
     if(!plantes) return [];
     if(!searchText) return plantes;
 

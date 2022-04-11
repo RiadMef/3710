@@ -83,6 +83,28 @@ export class DatabaseController {
           console.error(e.stack);
         });
     });
+    router.get("/varietes", (req: Request, res: Response, _: NextFunction) => {
+      
+      this.databaseService
+        .filtrerVarietes()
+        .then((result: pg.QueryResult) => {
+          const varites: any[] = result.rows.map((variete: any) => ({
+            nomVariete: variete.nomvariete,
+            descriptionSemis: variete.descriptionsemis,
+            descriptionPlantation: variete.descriptionplantation,
+            descriptionEntretien:variete.descriptionentretien,
+            descriptionMiseEnPlace:variete.descriptionmiseenplace,
+            descriptionRecolte:variete.descriptionrecolte,
+            commentaireGeneral:variete.commentairegeneral,
+            descriptionPeriodeRecolte:variete.descriptionperioderecolte,
+            anneeMiseEnMarchee:variete.anneemiseenmarchee,
+          }));
+          res.json(varites);
+        })
+        .catch((e: Error) => {
+          console.error(e.stack);
+        });
+    });
 
     
     router.get(

@@ -22,7 +22,11 @@ export class CommunicationService {
   public filter(filterBy: string): void {
     this._listners.next(filterBy);
   }
-
+  public getVarietes(): Observable<any[]> {
+    return this.http
+      .get<any[]>(this.BASE_URL + "/varietes")
+      .pipe(catchError(this.handleError<any[]>("getVarietes")));
+  }
   public getHotels(): Observable<Hotel[]> {
     return this.http
       .get<Hotel[]>(this.BASE_URL + "/hotels")
@@ -33,6 +37,8 @@ export class CommunicationService {
       .get<any[]>(this.BASE_URL + "/jardins")
       .pipe(catchError(this.handleError<any[]>("getjardins")));
   }
+
+  
 
   public getPlantes(): Observable<any[]> {
     return this.http

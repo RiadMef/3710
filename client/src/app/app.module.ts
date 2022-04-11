@@ -12,6 +12,7 @@ import { RoomComponent } from "./room/room.component";
 import { JardinComponent } from './jardin/jardin.component';
 import { PlanteComponent } from './plante/plante.component';
 import { PlanteFilterPipe } from './plante-filter.pipe';
+import { VarieteComponent } from './variete/variete.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { PlanteFilterPipe } from './plante-filter.pipe';
     JardinComponent,
     PlanteComponent,
     PlanteFilterPipe,
+    VarieteComponent,
   ],
   imports: [
     CommonModule,
