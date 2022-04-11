@@ -1,0 +1,44 @@
+<div>
+  <div>
+    <div>
+      <input type="text" [(ngModel)]="searchText">
+    </div>
+    {{searchText}}
+  </div>
+</div>
+
+<div id="jardin">
+  <h1>Plante</h1>
+
+  <div class="divider"></div>
+
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Identifiant Jardin</th>
+      <th class="contentCell">nomPlante</th>
+      <th class="contentCell">nomVariete</th>
+      <th class="contentCell">categoriePlante</th>
+      <th class="contentCell">typePlante</th>
+      <th class="contentCell">sousTypePlante</th>
+      <th class="contentCell">nomLatinPlante</th>
+    </thead>
+    <tbody>
+       <tr *ngFor="let plante of plantes; let i = index">
+        <td class="contentCell">{{ plante.identifiantJardin }}</td>
+        <td class="contentCell">{{ plante.nomPlante }}</td>
+        <td class="contentCell">{{ plante.nomVariete }}</td>
+        <td class="contentCell">{{ plante.categoriePlante}}</td>
+        <td class="contentCell">{{ plante.typePlante }} </td>
+        <td class="contentCell">{{ plante.sousTypePlante }}</td>
+        <td class="contentCell">{{ plante.nomLatinPlante }}</td>
+        
+       
+      </tr> 
+
+    
+
+    </tbody>
+  </table>
+
+
+</div>

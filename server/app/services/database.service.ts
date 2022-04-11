@@ -79,6 +79,20 @@ export class DatabaseService {
     return res;
   }
 
+  public async filtrerPlantes(): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+
+    const searchTerms: string[] = [];
+    
+    let queryText = "SELECT * FROM BDSCHEMA.Plante";
+    if (searchTerms.length > 0) queryText += " WHERE " + searchTerms.join(" AND ");
+    queryText += ";";
+
+    const res = await client.query(queryText);
+    client.release()
+    return res;
+  }
+
   // get the hotel names and numbers so so that the user can only select an existing hotel
   public async getHotelNamesByNos(): Promise<pg.QueryResult> {
     console.log("test");

@@ -33,6 +33,12 @@ export class CommunicationService {
       .get<any[]>(this.BASE_URL + "/jardins")
       .pipe(catchError(this.handleError<any[]>("getjardins")));
   }
+
+  public getPlantes(): Observable<any[]> {
+    return this.http
+      .get<any[]>(this.BASE_URL + "/plantes")
+      .pipe(catchError(this.handleError<any[]>("getPlantes")));
+  }
   public insertHotel(hotel: Hotel): Observable<number> {
     return this.http
       .post<number>(this.BASE_URL + "/hotels/insert", hotel)

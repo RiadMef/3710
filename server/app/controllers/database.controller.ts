@@ -62,6 +62,28 @@ export class DatabaseController {
         });
     });
 
+
+    router.get("/plantes", (req: Request, res: Response, _: NextFunction) => {
+      
+      this.databaseService
+        .filtrerPlantes()
+        .then((result: pg.QueryResult) => {
+          const plantes: any[] = result.rows.map((plante: any) => ({
+            identifiantJardin: plante.identifiantjardin,
+            nomPlante: plante.nomplante,
+            nomVariete: plante.nomvariete,
+            categoriePlante:plante.categorieplante,
+            typePlante:plante.typeplante,
+            sousTypePlante:plante.soustypeplante,
+            nomLatinPlante:plante.nomlatinplante,
+          }));
+          res.json(plantes);
+        })
+        .catch((e: Error) => {
+          console.error(e.stack);
+        });
+    });
+
     
     router.get(
       "/hotels/hotelNb",

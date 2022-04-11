@@ -6,6 +6,7 @@ import { HotelComponent } from "./hotel/hotel.component";
 import { RoomComponent } from "./room/room.component";
 import { GuestComponent } from "./guest/guest.component";
 import { JardinComponent } from "./jardin/jardin.component";
+import { PlanteComponent } from "./plante/plante.component";
 
 const routes: Routes = [
   { path: "app", component: AppComponent },
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: "hotels", component: HotelComponent },
   { path: "guests", component: GuestComponent },
   { path: "jardins", component: JardinComponent },
+  { path: "plantes", component: PlanteComponent },
+
 ];
 
 @NgModule({

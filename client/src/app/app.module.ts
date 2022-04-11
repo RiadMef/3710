@@ -10,6 +10,7 @@ import { GuestComponent } from "./guest/guest.component";
 import { HotelComponent } from "./hotel/hotel.component";
 import { RoomComponent } from "./room/room.component";
 import { JardinComponent } from './jardin/jardin.component';
+import { PlanteComponent } from './plante/plante.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,15 @@ import { JardinComponent } from './jardin/jardin.component';
     HotelComponent,
     GuestComponent,
     JardinComponent,
+    PlanteComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [CommunicationService],
   bootstrap: [AppComponent],
