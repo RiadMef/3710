@@ -11,6 +11,7 @@ import { HotelComponent } from "./hotel/hotel.component";
 import { RoomComponent } from "./room/room.component";
 import { JardinComponent } from './jardin/jardin.component';
 import { PlanteComponent } from './plante/plante.component';
+import { PlanteFilterPipe } from './plante-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PlanteComponent } from './plante/plante.component';
     GuestComponent,
     JardinComponent,
     PlanteComponent,
+    PlanteFilterPipe,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,6 @@ import { PlanteComponent } from './plante/plante.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    FormsModule,
   ],
   providers: [CommunicationService],
   bootstrap: [AppComponent],

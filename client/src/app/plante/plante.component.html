@@ -1,7 +1,7 @@
 <div>
   <div>
     <div>
-      <input type="text" [(ngModel)]="searchText">
+      <input type="text" name="search" [(ngModel)]="searchText" placeholder="chercher une plante par son nom">
     </div>
     {{searchText}}
   </div>
@@ -23,17 +23,20 @@
       <th class="contentCell">nomLatinPlante</th>
     </thead>
     <tbody>
-       <tr *ngFor="let plante of plantes; let i = index">
+     
+
+      <tr *ngFor="let plante of plantes |planteFilter: searchText "> 
         <td class="contentCell">{{ plante.identifiantJardin }}</td>
-        <td class="contentCell">{{ plante.nomPlante }}</td>
+        <td class="contentCell">{{ plante.nomPlante  }}</td>
         <td class="contentCell">{{ plante.nomVariete }}</td>
         <td class="contentCell">{{ plante.categoriePlante}}</td>
         <td class="contentCell">{{ plante.typePlante }} </td>
         <td class="contentCell">{{ plante.sousTypePlante }}</td>
         <td class="contentCell">{{ plante.nomLatinPlante }}</td>
-        
-       
-      </tr> 
+     
+
+
+
 
     
 
