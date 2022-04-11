@@ -1,16 +1,9 @@
-<div>
-  <div>
-    <div>
-      <input type="text" name="search" [(ngModel)]="searchText" placeholder="chercher une plante par son nom">
-    </div>
-    {{searchText}}
-  </div>
-</div>
 
 <div id="jardin">
   <h1>Plante</h1>
-
+ 
   <div class="divider"></div>
+  <input id=searchInput type="text" name="search" [(ngModel)]="searchText" placeholder="chercher une plante par son nom">
 
   <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
     <thead class="header">
