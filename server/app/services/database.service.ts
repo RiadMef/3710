@@ -49,12 +49,18 @@ export class DatabaseService {
   public async createVariete(variete: any): Promise<pg.QueryResult> {
     
     const client = await this.pool.connect();
+    const values: string[] = [];
+    if (variete.nomvariete.length > 0) values.push(variete.nomvariete);
+    if (variete.descriptionsemis.length > 0) values.push(variete.descriptionsemis);
+    if (variete.descriptionplantation.length > 0) values.push(variete.descriptionplantation);
+    if (variete.descriptionentretien.length > 0) values.push(variete.descriptionentretien);
+    if (variete.descriptionmiseenplace.length > 0) values.push(variete.descriptionmiseenplace);
+    if (variete.descriptionrecolte.length > 0) values.push(variete.descriptionrecolte);
+    if (variete.commentairegeneral.length > 0) values.push(variete.commentairegeneral);
+    if (variete.descriptionperioderecolte.length > 0) values.push(variete.descriptionperioderecolte);
+    if (variete.anneemiseenmarchee.length > 0) values.push(variete.anneemiseenmarchee);
 
-
-
-    const values: string[] = [variete.nomvariete, variete.descriptionsemis, variete.descriptionplantation
-       , variete.descriptionentretien, variete.descriptionmiseenplace, variete.descriptionrecolte
-       , variete.commentairegeneral, variete.descriptionperioderecolte, variete.anneemiseenmarchee];
+   
     const queryText: string = `INSERT INTO BDSCHEMA.Variete VALUES($1, $2, $3,$4, $5, $6,$7, $8, $9 );`;
 
     const res = await client.query(queryText, values);
