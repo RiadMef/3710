@@ -48,7 +48,10 @@ export class JardinComponent implements OnInit {
       this.jardins = jardins;
     });
 
+      
   
   }
-
+  selectJardin(a:string){
+        console.log(a);
+  }
 }

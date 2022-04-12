@@ -13,14 +13,15 @@
       <th class="contentCell">Type Sol</th>
     </thead>
     <tbody>
-       <tr *ngFor="let jardin of jardins; let i = index">
+       <tr class="clickable" *ngFor="let jardin of jardins; let i = index" [routerLink]="['/jardins'+ '/'+jardin.identifiantJardin]">
+       
         <td class="contentCell">{{ jardin.identifiantJardin }}</td>
         <td class="contentCell">{{ jardin.nomJardin }}</td>
         <td class="contentCell">{{ jardin.hauteurMaximale }}</td>
         <td class="contentCell">{{ jardin.surface}}</td>
         <td class="contentCell">{{ jardin.potagerJardinFlag }} {{ jardin.ornementJardinFlag }} {{ jardin.vergerJardinFlag }}</td>
         <td class="contentCell">{{ jardin.typeSol }}</td>
-        
+       
        
       </tr> 
 

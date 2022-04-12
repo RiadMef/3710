@@ -14,6 +14,7 @@ import { PlanteComponent } from './plante/plante.component';
 import { PlanteFilterPipe } from './plante-filter.pipe';
 import { VarieteComponent } from './variete/variete.component';
 import { AjouterVarieteComponent } from './ajouter-variete/ajouter-variete.component';
+import { JardinSelectionComponent } from './jardin-selection/jardin-selection.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AjouterVarieteComponent } from './ajouter-variete/ajouter-variete.compo
     PlanteFilterPipe,
     VarieteComponent,
     AjouterVarieteComponent,
+    JardinSelectionComponent,
   ],
   imports: [
     CommonModule,

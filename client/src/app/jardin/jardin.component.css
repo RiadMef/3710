@@ -16,7 +16,9 @@
     width: 50%;
     margin-bottom: 25px;
 }
-
+.clickable{
+    cursor: pointer;
+}
 .header {
     font-size: 18px;
     color: #9A75F0;
