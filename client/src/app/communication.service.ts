@@ -63,6 +63,12 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<number>("deleteHotel")));
   }
 
+  public deleteVariete(nomVariete: string): Observable<number> {
+    return this.http
+      .delete<any>(this.BASE_URL + "/variete/delete/" + nomVariete, {})
+      .pipe(catchError(this.handleError<any>("deleteHotel")));
+  }
+
   public getHotelPKs(): Observable<HotelPK[]> {
     return this.http
       .get<HotelPK[]>(this.BASE_URL + "/hotels/hotelNb")

@@ -164,6 +164,22 @@ export class DatabaseController {
       }
     );
 
+    router.delete(
+      "/variete/delete/:nomVariete",
+      (req: Request, res: Response, _: NextFunction) => {
+        console.log( req.params.nomVariete);
+        const nomVariete: string = req.params.nomVariete;
+        this.databaseService
+          .deleteVariete(nomVariete)
+          .then((result: pg.QueryResult) => {
+            res.json(result.rowCount);
+          })
+          .catch((e: Error) => {
+            console.error(e.stack);
+          });
+      }
+    );
+
 
     router.put(
       "/hotels/update",

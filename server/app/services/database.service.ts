@@ -146,6 +146,19 @@ export class DatabaseService {
     return res;
   }
 
+  public async deleteVariete(nomVariete: string): Promise<pg.QueryResult> {
+    if (nomVariete.length === 0) throw new Error("Invalid delete query");
+    
+    
+    const client = await this.pool.connect();
+    console.log(nomVariete);
+    const query = `DELETE FROM BDSCHEMA.Variete WHERE nomvariete = '${nomVariete}';`;
+   
+    const res = await client.query(query);
+    client.release()
+    return res;
+  }
+
 
   // ======= ROOMS =======
   public async createRoom(room: Room): Promise<pg.QueryResult> {

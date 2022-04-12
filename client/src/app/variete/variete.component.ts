@@ -18,12 +18,17 @@ export class VarieteComponent implements OnInit {
 
   public getVarietes(): void {
     this.communicationService.getVarietes().subscribe((varietes: any[]) => {
-      
-  
       this.varietes = varietes;
-    
   });
- 
+}
+private refresh() {
+  this.getVarietes();
+}
+  public deleteVariete(nomVariete: string) {
+    this.communicationService.deleteVariete(nomVariete).subscribe((res: any) => {
+      console.log(nomVariete);
+      this.refresh();
+    });
   }
 
 }
