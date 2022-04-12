@@ -46,6 +46,22 @@ export class DatabaseService {
     return res;
   }
 
+  public async createVariete(variete: any): Promise<pg.QueryResult> {
+    
+    const client = await this.pool.connect();
+
+
+
+    const values: string[] = [variete.nomvariete, variete.descriptionsemis, variete.descriptionplantation
+       , variete.descriptionentretien, variete.descriptionmiseenplace, variete.descriptionrecolte
+       , variete.commentairegeneral, variete.descriptionperioderecolte, variete.anneemiseenmarchee];
+    const queryText: string = `INSERT INTO BDSCHEMA.Variete VALUES($1, $2, $3,$4, $5, $6,$7, $8, $9 );`;
+
+    const res = await client.query(queryText, values);
+    client.release()
+    return res;
+  }
+
 
   // get hotels that correspond to certain caracteristics
   public async filterHotels(hotelNb: string, hotelName: string, city: string): Promise<pg.QueryResult> {

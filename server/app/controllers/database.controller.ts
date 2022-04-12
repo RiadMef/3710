@@ -148,7 +148,33 @@ export class DatabaseController {
       }
     );
 
+    router.post(
+      "/variete/insert",
+      (req: Request, res: Response, _: NextFunction) => {
+        
 
+        const Variete:any ={
+          nomvariete: req.body.nomVariete,
+          descriptionsemis: req.body.descriptionSemis ,
+          descriptionplantation: req.body.descriptionPlantation,
+          descriptionentretien: req.body.descriptionEntretien,
+          descriptionmiseenplace: req.body.descriptionMiseEnPlace,
+          descriptionrecolte: req.body.descriptionRecolte,
+          commentairegeneral: req.body.commentaireGeneral,
+          descriptionperioderecolte: req.body.descriptionPeriodeRecolte,
+          anneemiseenmarchee: req.body.anneeMiseEnMarchee,
+        };
+        this.databaseService
+          .createVariete(Variete)
+          .then((result: pg.QueryResult) => {
+            res.json(result.rowCount);
+          })
+          .catch((e: Error) => {
+            console.error(e.stack);
+            res.json(-1);
+          });
+      }
+    );
     router.post(
       "/hotels/delete/:hotelNb",
       (req: Request, res: Response, _: NextFunction) => {
