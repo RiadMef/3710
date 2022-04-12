@@ -24,9 +24,20 @@ export class VarieteComponent implements OnInit {
 private refresh() {
   this.getVarietes();
 }
+public changeVariete(event: any, proprety:string ,i:number){
+  const editField = event.target.textContent;
+  this.varietes[i][proprety] = editField;
+}
+
+
   public deleteVariete(nomVariete: string) {
     this.communicationService.deleteVariete(nomVariete).subscribe((res: any) => {
-      console.log(nomVariete);
+      this.refresh();
+    });
+  }
+
+  public updateVariete(i: number) {
+    this.communicationService.updateVariete(this.varietes[i]).subscribe((res: any) => {
       this.refresh();
     });
   }

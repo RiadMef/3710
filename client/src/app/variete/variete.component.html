@@ -17,17 +17,17 @@
     </thead>
     <tbody>
       <tr *ngFor="let variete of varietes; let i = index">
-        <td class="contentCell">{{ variete.nomVariete }}</td>
-        <td class="contentCell">{{ variete.descriptionSemis  }}</td>
-        <td class="contentCell">{{ variete.descriptionPlantation }}</td>
-        <td class="contentCell">{{ variete.descriptionEntretien}}</td>
-        <td class="contentCell">{{ variete.descriptionMiseEnPlace }} </td>
-        <td class="contentCell">{{ variete.descriptionRecolte }}</td>
-        <td class="contentCell">{{ variete.commentaireGeneral }}</td>
-        <td class="contentCell">{{ variete.descriptionPeriodeRecolte }}</td> 
-        <td class="contentCell">{{ variete.anneeMiseEnMarchee }}</td>
+        <td class="contentCell" >{{ variete.nomVariete }}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'descriptionSemis' ,i)">{{ variete.descriptionSemis  }}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'descriptionPlantation' , i)">{{ variete.descriptionPlantation }}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'descriptionEntretien' , i)">{{ variete.descriptionEntretien}}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'descriptionMiseEnPlace' , i)">{{ variete.descriptionMiseEnPlace }} </td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event, 'descriptionRecolte' ,i)">{{ variete.descriptionRecolte }}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event, 'commentaireGeneral' ,i)">{{ variete.commentaireGeneral }}</td>
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'descriptionPeriodeRecolte' , i)">{{ variete.descriptionPeriodeRecolte }}</td> 
+        <td class="contentCell" contenteditable="true" (blur)="changeVariete($event,'anneeMiseEnMarchee' , i)">{{ variete.anneeMiseEnMarchee }}</td>
         <td class="actionCell">
-          <button type="button" class="submitbtn" (click)="getVarietes() " ><i class="fa fa-edit"></i></button>
+          <button type="button" class="submitbtn" (click)="updateVariete(i) " ><i class="fa fa-edit"></i></button>
           <button type="button" class="deletebtn" (click)="deleteVariete(variete.nomVariete)" ><i class="fa fa-trash-o"></i></button>
         </td>
       </tr>

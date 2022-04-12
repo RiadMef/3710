@@ -226,7 +226,31 @@ export class DatabaseController {
           });
       }
     );
+    router.put(
+      "/variete/update",
+      (req: Request, res: Response, _: NextFunction) => {
+        const variete: any = {
+          nomvariete: req.body.nomVariete,
+          descriptionsemis: req.body.descriptionSemis ,
+          descriptionplantation: req.body.descriptionPlantation,
+          descriptionentretien: req.body.descriptionEntretien,
+          descriptionmiseenplace: req.body.descriptionMiseEnPlace,
+          descriptionrecolte: req.body.descriptionRecolte,
+          commentairegeneral: req.body.commentaireGeneral,
+          descriptionperioderecolte: req.body.descriptionPeriodeRecolte,
+          anneemiseenmarchee: req.body.anneeMiseEnMarchee,
+        };
 
+        this.databaseService
+          .updateVariete(variete)
+          .then((result: pg.QueryResult) => {
+            res.json(result.rowCount);
+          })
+          .catch((e: Error) => {
+            console.error(e.stack);
+          });
+      }
+    );
 
     // ======= ROOMS ROUTES =======
     router.get("/rooms", (req: Request, res: Response, _: NextFunction) => {

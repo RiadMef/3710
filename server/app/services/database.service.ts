@@ -149,6 +149,26 @@ export class DatabaseService {
     return res;
   }
 
+  public async updateVariete(variete: any): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+
+    let toUpdateValues = [];
+  
+    if (variete.nomvariete.length > 0) toUpdateValues.push(`nomvariete = '${variete.nomvariete}'`);
+    if (variete.descriptionsemis.length > 0) toUpdateValues.push(`descriptionsemis = '${variete.descriptionsemis}'`);
+    if (variete.descriptionplantation.length > 0) toUpdateValues.push(`descriptionplantation = '${variete.descriptionplantation}'`);
+    if (variete.descriptionentretien.length > 0) toUpdateValues.push(`descriptionentretien = '${variete.descriptionentretien}'`);
+    if (variete.descriptionmiseenplace.length > 0) toUpdateValues.push(`descriptionmiseenplace = '${variete.descriptionmiseenplace}'`);
+    if (variete.descriptionrecolte.length > 0) toUpdateValues.push(`descriptionrecolte = '${variete.descriptionrecolte}'`);
+    if (variete.commentairegeneral.length > 0) toUpdateValues.push(`commentairegeneral = '${variete.commentairegeneral}'`);
+    if (variete.descriptionperioderecolte.length > 0) toUpdateValues.push(`descriptionperioderecolte = '${variete.descriptionperioderecolte}'`);
+    if (variete.anneemiseenmarchee.length > 0) toUpdateValues.push(`anneemiseenmarchee = '${variete.anneemiseenmarchee}'`);
+    const query = `UPDATE BDSCHEMA.Variete SET ${toUpdateValues.join(", ")} WHERE nomvariete = '${variete.nomvariete}';`;
+    const res = await client.query(query);
+    client.release()
+    return res;
+  }
+
 
   public async deleteHotel(hotelNb: string): Promise<pg.QueryResult> {
     if (hotelNb.length === 0) throw new Error("Invalid delete query");

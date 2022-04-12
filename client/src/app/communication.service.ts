@@ -63,6 +63,12 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<number>("updateHotel")));
   }
 
+  public updateVariete(variete: any): Observable<any> {
+    return this.http
+      .put<any>(this.BASE_URL + "/variete/update", variete)
+      .pipe(catchError(this.handleError<any>("updateVariete")));
+  }
+
   public deleteHotel(hotelNb: string): Observable<number> {
     return this.http
       .post<number>(this.BASE_URL + "/hotels/delete/" + hotelNb, {})
