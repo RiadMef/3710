@@ -101,6 +101,27 @@ export class DatabaseService {
     return res;
   }
 
+  public async filterJardin(primaryKey:string): Promise<pg.QueryResult> {
+    const client = await this.pool.connect();
+    let rep: any= [];
+   
+    let jardinReq = "SELECT * FROM BDSCHEMA.Jardin WHERE " +`identifiantJardin = '${primaryKey}'`;
+    let parcelleReq = "SELECT * FROM BDSCHEMA.Parcelle WHERE " +`identifiantJardin = '${primaryKey}'`;
+    let rangReq = "SELECT * FROM BDSCHEMA.Rang WHERE parcelleID IN (SELECT parcelleID FROM BDSCHEMA.Parcelle WHERE " +`identifiantJardin = '${primaryKey}'` + ")";
+    let varieteReq = "SELECT * FROM BDSCHEMA.Variete WHERE nomVariete IN (SELECT nomVariete FROM BDSCHEMA.RangVariete WHERE parcelleID IN (SELECT parcelleID FROM BDSCHEMA.Parcelle WHERE "+`identifiantJardin = '${primaryKey}'` + "))";
+    let jardin = await client.query(jardinReq);
+    let parcelle = await client.query(parcelleReq);
+    let rang = await client.query(rangReq);
+    let variete = await client.query(varieteReq);
+    rep.push(jardin );
+    rep.push(parcelle);
+    rep.push(rang);
+    rep.push(variete);
+
+    client.release()
+    return rep;
+  }
+
   public async filtrerPlantes(): Promise<pg.QueryResult> {
     const client = await this.pool.connect();
 

@@ -62,6 +62,25 @@ export class DatabaseController {
         });
     });
 
+    router.get("/jardins/:id", (req: Request, res: Response, _: NextFunction) => {
+     
+      const varieteId: string = req.params.id;
+      let jardins:any =[];
+
+      this.databaseService
+        .filterJardin(varieteId)
+        .then((result: pg.QueryResult) => {
+          jardins.push(result[0].rows);
+          jardins.push(result[1].rows);
+          jardins.push(result[2].rows);
+          jardins.push(result[3].rows);
+          res.json(jardins);
+        })
+        .catch((e: Error) => {
+          console.error(e.stack);
+        });
+    });
+
 
     router.get("/plantes", (req: Request, res: Response, _: NextFunction) => {
       

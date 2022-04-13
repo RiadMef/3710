@@ -1,3 +1,114 @@
-<p>
-  jardin-selection works!
-</p>
+<div id="jardin">
+  <h1>Jardins</h1>
+
+ 
+
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Identifiant Jardin</th>
+      <th class="contentCell">Nom Jardin</th>
+      <th class="contentCell">Hauteur Maximale</th>
+      <th class="contentCell">Surface</th>
+      <th class="contentCell">Type Jardin</th>
+      <th class="contentCell">Type Sol</th>
+    </thead>
+    <tbody>
+      
+       
+        
+         <td class="contentCell">{{ jardin[0][0].identifiantjardin }}</td>
+         <td class="contentCell">{{ jardin[0][0].nomjardin }}</td>
+         <td class="contentCell">{{ jardin[0][0].hauteurmaximale }}</td>
+         <td class="contentCell">{{ jardin[0][0].surface}}</td>
+         <td class="contentCell">{{ jardin[0][0].potagerjardinflag }} {{ jardin[0][0].ornementjardinflag }} {{ jardin[0][0].vergerjardinflag }}</td>
+         <td class="contentCell">{{ jardin[0][0].typesol }}</td>
+        
+        
+       
+
+    </tbody>
+  </table>
+  <h1>Parcelles</h1>
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Identifiant Jardin</th>
+      <th class="contentCell">ParcelleId</th>
+      <th class="contentCell">Coordonnee Parcelle</th>
+      <th class="contentCell">Dimension Parcelle</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let parcelle of jardin[1]; let i = index">
+      
+       <td class="contentCell">{{ parcelle.identifiantjardin }}</td>
+       <td class="contentCell">{{ parcelle.parcelleid }}</td>
+       <td class="contentCell">{{ parcelle.coordonneeparcelle }}</td>
+       <td class="contentCell">{{ parcelle.dimensionparcelle}}</td>
+      
+      
+     </tr> 
+
+   
+
+   </tbody>
+  </table>
+
+  <h1>Rangs</h1>
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Numero Rang</th>
+      <th class="contentCell">ParcelleId</th>
+      <th class="contentCell">Coordonnee Rang</th>
+      <th class="contentCell">Jachere</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rang of jardin[2]; let i = index">
+      
+       <td class="contentCell">{{ rang.numerorang }}</td>
+       <td class="contentCell">{{ rang.parcelleid }}</td>
+       <td class="contentCell">{{ rang.coordonneerang }}</td>
+       <td class="contentCell">{{ rang.jachere}}</td>
+      
+      
+     </tr> 
+
+   
+
+   </tbody>
+  </table>
+
+  <h1>variétés de plantes  
+    dans les rangs</h1>
+  <table id="ht" align="center" border="1" width="1000" class="table-striped table-hover">
+    <thead class="header">
+      <th class="contentCell">Nom variété</th>
+      <th class="contentCell">description Semis</th>
+      <th class="contentCell">Description plantation</th>
+      <th class="contentCell">description entretien</th>
+      <th class="contentCell">description mis en place</th>
+      <th class="contentCell">description récolte</th>
+      <th class="contentCell">commentaire générale</th>
+      <th class="contentCell">description période récolte</th>
+      <th class="contentCell">année mis en marche</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let varRang of jardin[3]; let i = index">
+      
+        <td class="contentCell" >{{ varRang.nomvariete }}</td>
+        <td class="contentCell">{{ varRang.descriptionsemis  }}</td>
+        <td class="contentCell" >{{ varRang.descriptionplantation }}</td>
+        <td class="contentCell" >{{ varRang.descriptionentretien}}</td>
+        <td class="contentCell">{{ varRang.descriptionmiseenplace }} </td>
+        <td class="contentCell">{{ varRang.descriptionrecolte }}</td>
+        <td class="contentCell" >{{ varRang.commentairegeneral }}</td>
+        <td class="contentCell">{{ varRang.descriptionperioderecolte }}</td> 
+        <td class="contentCell" >{{ varRang.anneemiseenmarchee }}</td>
+      
+      
+     </tr> 
+
+   
+
+   </tbody>
+  </table>
+ 
+</div>

@@ -38,7 +38,11 @@ export class CommunicationService {
       .pipe(catchError(this.handleError<any[]>("getjardins")));
   }
 
-  
+  public getJardin(primaryKey:string): Observable<any[]> {
+    return this.http
+      .get<any[]>(this.BASE_URL + "/jardins/"+primaryKey)
+      .pipe(catchError(this.handleError<any[]>("getJardin")));
+  }
 
   public getPlantes(): Observable<any[]> {
     return this.http

@@ -51,7 +51,5 @@ export class JardinComponent implements OnInit {
       
   
   }
-  selectJardin(a:string){
-        console.log(a);
-  }
+  
 }
