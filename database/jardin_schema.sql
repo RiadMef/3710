@@ -31,7 +31,7 @@ CREATE TABLE Rang(
 	parcelleID VARCHAR(20) NOT NULL,
 	coordonneeRang VARCHAR(20) NOT NULL,
 	jachere VARCHAR(20),
-    PRIMARY KEY(numeroRang),
+	PRIMARY KEY(numeroRang, parcelleID),
 	FOREIGN KEY(parcelleID) REFERENCES Parcelle(parcelleID)
 );
 CREATE TABLE Variete(
@@ -57,7 +57,9 @@ CREATE TABLE RangVariete(
 	numeroRang VARCHAR(20) NOT NULL,
 	nomVariete VARCHAR(20) NOT NULL,
 	typeMiseEnPlace VARCHAR(20) NOT NULL,
-	FOREIGN KEY(numeroRang) REFERENCES Rang(numeroRang),
+	parcelleID VARCHAR(20) NOT NULL,
+	FOREIGN KEY(numeroRang, parcelleID) REFERENCES Rang(numeroRang, parcelleID),
+	FOREIGN KEY(parcelleID) REFERENCES Parcelle(parcelleID),
 	FOREIGN KEY(nomVariete) REFERENCES Variete(nomVariete)
 );
 CREATE TABLE Plante(
@@ -73,7 +75,7 @@ CREATE TABLE Plante(
 	FOREIGN KEY(nomVariete) REFERENCES Variete(nomVariete)
 );
 CREATE TABLE AssociationPlante(
-	beneficeInconvenient VARCHAR (20) NOT NULL,
+	beneficeInconvenient VARCHAR (50) NOT NULL,
 	nomLatinPlante1 VARCHAR(50) NOT NULL,
 	nomLatinPlante2 VARCHAR(50) NOT NULL,
 	FOREIGN KEY(nomLatinPlante1) REFERENCES Plante(nomLatinPlante),
@@ -88,9 +90,15 @@ CREATE TABLE Menace(
 );
 CREATE TABLE Semancier(
 	nomSemancier VARCHAR(50) NOT NULL,
-	biologique BOOLEAN NOT NULL,
 	siteWeb VARCHAR(50) NOT NULL,
+	PRIMARY KEY(nomSemancier)
+);
+
+CREATE TABLE VarieteSemancier(
+	nomSemancier VARCHAR(50) NOT NULL,
+	biologique BOOLEAN NOT NULL,
 	nomVariete VARCHAR(50) NOT NULL,
-	PRIMARY KEY(nomSemancier),
+	PRIMARY KEY(nomSemancier, nomVariete),
+	FOREIGN KEY(nomSemancier) REFERENCES Semancier(nomSemancier),
 	FOREIGN KEY(nomVariete) REFERENCES Variete(nomVariete)
 );

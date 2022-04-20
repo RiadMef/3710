@@ -6,9 +6,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CommunicationService } from "./communication.service";
-import { GuestComponent } from "./guest/guest.component";
-import { HotelComponent } from "./hotel/hotel.component";
-import { RoomComponent } from "./room/room.component";
 import { JardinComponent } from './jardin/jardin.component';
 import { PlanteComponent } from './plante/plante.component';
 import { PlanteFilterPipe } from './plante-filter.pipe';
@@ -19,9 +16,6 @@ import { JardinSelectionComponent } from './jardin-selection/jardin-selection.co
 @NgModule({
   declarations: [
     AppComponent,
-    RoomComponent,
-    HotelComponent,
-    GuestComponent,
     JardinComponent,
     PlanteComponent,
     PlanteFilterPipe,

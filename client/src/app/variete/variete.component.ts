@@ -40,6 +40,7 @@ public changeVariete(event: any, proprety:string ,i:number){
     this.communicationService.updateVariete(this.varietes[i]).subscribe((res: any) => {
       this.refresh();
     });
+    window.location.reload();
   }
 
 }
