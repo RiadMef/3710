@@ -48,7 +48,7 @@
     "inversify": "^4.13.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.9",
-    "pg": "^8.0.0",
+    "pg": "^8.2.0",
     "pg-promise": "^10.9.2",
     "reflect-metadata": "^0.1.10",
     "serve-favicon": "~2.5.0",
